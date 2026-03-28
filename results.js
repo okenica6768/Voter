@@ -26,24 +26,24 @@ async function loadResults(){
 
 let snap = await getDocs(collection(db,"votes"));
 
-let counts = {};
+let counts={};
 
-candidates.forEach(c => counts[c] = 0);
+candidates.forEach(c=>counts[c]=0);
 
-snap.forEach(doc => {
-doc.data().vote.forEach(v => {
+snap.forEach(doc=>{
+doc.data().vote.forEach(v=>{
 counts[v]++;
 });
 });
 
-let results = document.getElementById("results");
+let results=document.getElementById("results");
 
 Object.entries(counts)
 .sort((a,b)=>b[1]-a[1])
-.forEach(([name,count]) => {
+.forEach(([name,count])=>{
 
-let div = document.createElement("div");
-div.innerHTML = `<b>${name}</b> — ${count} votes`;
+let div=document.createElement("div");
+div.innerHTML=`<b>${name}</b> — ${count} votes`;
 
 results.appendChild(div);
 
