@@ -26,23 +26,26 @@ let selected = [];
 
 const container = document.getElementById("candidates");
 
-candidates.forEach(name => {
+candidates.forEach(name=>{
 
-let div = document.createElement("div");
-div.className = "candidate";
-div.innerText = name;
+let div=document.createElement("div");
+div.className="candidate";
+div.innerText=name;
 
-div.onclick = () => {
+div.onclick=()=>{
 
 if(selected.includes(name)){
-selected = selected.filter(x => x !== name);
+selected=selected.filter(x=>x!==name);
 div.classList.remove("selected");
 }
+
 else{
-if(selected.length < 2){
+
+if(selected.length<2){
 selected.push(name);
 div.classList.add("selected");
 }
+
 }
 
 };
@@ -51,9 +54,9 @@ container.appendChild(div);
 
 });
 
-document.getElementById("submitVote").onclick = async () => {
+document.getElementById("submitVote").onclick=async()=>{
 
-if(selected.length !== 2){
+if(selected.length!==2){
 alert("Select exactly 2 people");
 return;
 }
